@@ -91,6 +91,9 @@ I use Vite.js as my development server as well as its build tool, which uses Rol
 I use TailwindCSS as my CSS library. Considered a low-level framework, there aren't many fancy presets that abstract away the actual CSS logic: it mostly allows me to just write inline utility classes. It's also the CSS framework I'm mostly comfortable at the moment, so it was primarily a quality-of life- & time consideration. It also helps that Tailwind automatically removes all unused CSS for production builds.
 Using it as a PostCSS plugin makes it easy to integrate with Vite.js and its Rollup build tool.
 
+### Serve
+I use Serve to run the production build in my local environment.
+
 
 <br>
 
