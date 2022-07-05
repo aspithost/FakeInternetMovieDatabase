@@ -97,7 +97,7 @@ I use Serve to run the production build in my local environment.
 
 <br>
 
-## Unfinished/Left-out (time-constraints & prioritization)
+## Unfinished/Left out (time-constraints & prioritization)
 
 ### Testing
 I have not yet used testing frameworks in my coding process. Although I have started toying around with Jest in some test folders and look forward to adding it to my day-to-day routine, I did not find the time to use (and propertly document) it this time around on such short notice.
