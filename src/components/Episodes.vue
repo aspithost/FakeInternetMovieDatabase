@@ -6,7 +6,7 @@
     <details v-for="(season, index) in episodesBySeason">
         <summary class="space-x-2">
             <span class="text-lg font-semibold">Season {{ index + 1}}</span>
-            <span class="text-gray-300">({{ season[0].airdate.slice(0,4)}})</span>
+            <span class="text-gray-300">({{ season[0]?.airdate.slice(0,4)}})</span>
         </summary>
         <details v-for="episode in season" class="px-4 py-1">
             <summary class="font-semibold">
