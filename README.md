@@ -97,7 +97,7 @@ Using it as a PostCSS plugin makes it easy to integrate with Vite.js and its Rol
 ## Unfinished/Left-out (time-constraints & prioritization)
 
 ### Testing
-As I discussed with Surya in our meeting last week, I have not yet used testing frameworks in my coding process. Although I have started toying around with Jest in some test folders and look forward to adding it to my day-to-day routine, I did not find the time to use (and propertly document) it this time around on such short notice.
+I have not yet used testing frameworks in my coding process. Although I have started toying around with Jest in some test folders and look forward to adding it to my day-to-day routine, I did not find the time to use (and propertly document) it this time around on such short notice.
 
 ### Infinite Carousel
 I would've loved to build "infinite" carousels on my homepage, but I have not yet created such a tool before. Scrapped due to time constraints.
