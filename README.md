@@ -79,7 +79,7 @@ Rather than just list popular and relevant shows, I thought It'd be funny to inc
 As the assignment instructed, I tried to keep my libraries and frameworks to a minimum. I did not use any JavaScript quality-of-life utilities/libraries like Lodash, and instead wrote all the logic myself.
 
 ### Vue 3 & Composition API
-For this assignment I chose to use Vue.js as my front-end framework. I have worked with Vue extensively and, seeing that you are hiring Vue developers, it seemed like a logical choice. I use Vue 3 and the Composition API, as I like working with composables and find the Composition API's logic very intuitive.
+For this assignment I chose to use Vue.js as my front-end framework. I have worked with Vue extensively and it seemed like a logical choice for this simple SPA. I use Vue 3 and the Composition API, as I like working with composables and find the Composition API's logic very intuitive.
 
 ### Vue-Router
 I use Vue-Router for front-end routing. I have not tried my hand at routing in just plain JavaScript, this was mostly a quality-of-life and time consideration.
@@ -112,4 +112,4 @@ While I handle errors from my API calls, I do not show them anywhere in my Vue t
 I wanted to include a tool where users could add some of their favorite shows to a global state, which I would save in localStorage/cookies. I did not consider it a core feature, so I had to scrap it due to time constraints.
 
 ### Skeleton Loading
-Would've been a fancy addition. Scrapped due to time constraints.
+Skeleton loading would've been a fancy addition. Scrapped due to time constraints.
