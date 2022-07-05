@@ -42,7 +42,7 @@ import ItemList from '../components/ItemList.vue'
 
 import useFetch from '../composables/fetch'
 import useFilterShows from '../composables/filterShows'
-import useGetWorstShows from '../composables/getWorstShows'
+import useGetWorstShows from '../composables/worstShows'
 
 const { data: shows, error: showsError } = useFetch('https://api.tvmaze.com/shows')
 const { error: worstShowsError, worstShows, getWorstShows } = useGetWorstShows()
