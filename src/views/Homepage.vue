@@ -15,7 +15,7 @@
            
            <div v-if="genre === 'Worst Shows Of All Time' && !shows.length" class="space-y-1">
                 <p>Ever wondered what we all consider the worst shows of all time? It just so happens that I can show you!</p>
-                <p>It does take a few seconds, though. Querying over 60.000 shows in the database can do that for you..</p>
+                <p>It does take a few seconds, though. Querying over 60.000 shows in the database can do that for you!</p>
      
                 <button 
                     @click="getWorstShows(); loadingWorstShows = true"
