@@ -2,7 +2,7 @@
 Welcome to FIMDb! Please don't upload this to the web, as Amazon may just sue me for copyright infringement ;)
 
 ## How To Run This Project
-Running this project in development mode should not be too much of a hassle. Once copy-pasted to your local machine that has Node.js installed, please install the dependencies:
+Running this project in development mode should not be too much of a hassle. Once downloaded and/or copypasted to your local machine that has Node.js installed, please install the dependencies from the command line:
 
 ```
 npm install
