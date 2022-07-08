@@ -18,7 +18,7 @@ const useFilterShows = (shows, genre) => {
     return shows
         .sort(sortByRating)
         .slice(0, 20)
-        .sort(shuffle)
+        // .sort(shuffle)
 }
 
 export default useFilterShows
