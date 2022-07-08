@@ -1,5 +1,5 @@
 <template>
-    <nav class="py-4 flex items-center transition-all space-x-2">
+    <nav class="base-layout py-4 flex items-center transition-all space-x-2">
         <router-link :to="{ name: 'Homepage' }" class="cursor-pointer hover:opacity-80">
             <img 
                 src="/FIMDb.svg" 
