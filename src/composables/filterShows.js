@@ -1,13 +1,11 @@
+import shuffle from './shuffle'
+
 const filterByGenre = (show, genre) => {
     return show.genres.includes(genre) 
 }
 
 const sortByRating = (a, b) => {
     return b.rating.average - a.rating.average
-}
-
-const shuffle = () => {
-    return Math.random() - 0.5
 }
 
 const useFilterShows = (shows, genre) => {
@@ -18,7 +16,7 @@ const useFilterShows = (shows, genre) => {
     return shows
         .sort(sortByRating)
         .slice(0, 20)
-        // .sort(shuffle)
+        .sort(shuffle)
 }
 
 export default useFilterShows
