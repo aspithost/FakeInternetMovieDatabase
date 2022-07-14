@@ -38,27 +38,33 @@
             >
                 <h3 class="clip-text hover:text-white"> {{ show.name }}</h3>
             </router-link> 
-            <router-link 
-                :to="{ 
-                    name: 'Show',
-                    params: {
-                        id: show.id,
-                        slug: show.name
-                            .toLowerCase()
-                            .replace(/\s|\W/, '-')
-                    }
-                }"
+            <button 
+                v-if="!store.exists('shows', show)"
+                @click="store.add('shows', show); watchList = 'Added to'"
+                class="button"
             >
-                <div class="bg-[#333] rounded-md px-2 xl:px-4 text-center py-1 my-2 hover:bg-[#444]">
-                    <span class="text-sm xl:text-base">Details</span>
-                </div>
-            </router-link> 
+                + Watchlist 
+            </button>
+            <button 
+                v-else 
+                @click="store.remove('shows', show); watchList = 'Removed from'"
+                class="button"
+            >
+                - Watchlist
+            </button>
+            <div v-show="watchList">{{ watchList }} Watchlist!</div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+import store from '../store'
+
 import ShowRating from './ShowRating.vue'
+
+const watchList = ref(null)
 
 const props = defineProps({
     show: Object

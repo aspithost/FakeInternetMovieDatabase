@@ -18,12 +18,8 @@ const getScrollPosition = () => {
     const percentage = document.documentElement.scrollTop / 
         (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100
     
-    if(typeof percentage === 'number') {
-        if (percentage < 1) {
-            progressBar.value = 1
-        } else {
-            progressBar.value = percentage
-        }
+    if(percentage >= 0) {
+        progressBar.value = percentage < 1 ? 1 : percentage
     }
 }
 

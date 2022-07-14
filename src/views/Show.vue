@@ -92,7 +92,6 @@
 
 <script setup>
 import { computed } from 'vue'
-
 import Cast from '../components/Cast.vue'
 import Episodes from '../components/Episodes.vue'
 import ImagePortrait from '../components/ImagePortrait.vue'
