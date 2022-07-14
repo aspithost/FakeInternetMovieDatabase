@@ -21,7 +21,7 @@
                     @click="getWorstShows(); loadingWorstShows = true"
                     :class="[
                         'bg-[#333] font-semibold rounded-full px-4 py-2 hover:bg-[#444]', 
-                        {'cursor-not-allowed animate-pulse' : loadingWorstShows}
+                        {'cursor-not-allowed animate-pulse' : loadingWorstShows }
                     ]"
                 >
                     Yes, Load Worst Shows! 
@@ -40,12 +40,16 @@ import { computed, ref} from 'vue'
 
 import ItemList from '../components/ItemList.vue'
 
-import useFetch from '../composables/fetch'
+// import useFetch from '../composables/useFetch'
 import useFilterShows from '../composables/filterShows'
+import useGetShows from '../composables/shows'
 import useGetWorstShows from '../composables/worstShows'
 
-const { data: shows, error: showsError } = useFetch('https://api.tvmaze.com/shows')
+// const { error: showsError, data: shows } = useFetch('https://api.tvmaze.com/shows')
+const { error: showsError, shows, getShows } = useGetShows()
 const { error: worstShowsError, worstShows, getWorstShows } = useGetWorstShows()
+
+if (!shows.value.length) getShows('https://api.tvmaze.com/shows')
 
 const showsFeatured = computed(() => useFilterShows(shows.value))
 const showsAction = computed(() => useFilterShows(shows.value, 'Action'))
