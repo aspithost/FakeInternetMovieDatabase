@@ -9,7 +9,7 @@ const sortByRating = (a, b) => {
 }
 
 const useFilterShows = (shows, genre) => {
-    if (!shows?.length) return
+    if (!shows.length) return
 
     if (genre) shows = shows.filter(show => filterByGenre(show, genre))
 
