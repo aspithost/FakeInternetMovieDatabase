@@ -22,14 +22,13 @@ const getWorstShows = async () => {
                 .slice(0,3);
             worst = [...worst, ...sortedShows]
                 .sort((a,b) => a.rating.average - b.rating.average)
-                .slice(0, 20)
-                .sort(shuffle);
+                .slice(0, 20);
             pageCounter += 1;
         } catch (err) {
             error.value = err.message
         }
     } 
-    return worstShows.value = worst
+    return worstShows.value = worst.sort(shuffle)
 }
 
 export default function useGetWorstShows () {
