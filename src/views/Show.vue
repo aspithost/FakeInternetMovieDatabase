@@ -134,7 +134,7 @@ const episodesBySeason = computed (() => {
     let eps = data.value?._embedded.episodes;
     if (!eps) return []
 
-    // eps = JSON.parse(JSON.stringify(eps)) // Unkunecessary, used in previous versions 
+    eps = JSON.parse(JSON.stringify(eps)) 
 
     const seasons = getShowSeasons(eps)
 
