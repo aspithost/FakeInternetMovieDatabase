@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-4 pt-4">
-        <section v-for="[genre, shows] in [
+        <!-- <section v-for="[genre, shows] in [
             ['Featured', showsFeatured],
             ['Drama', showsDrama], 
             ['Action', showsAction], 
@@ -10,7 +10,8 @@
             ['Science Fiction', showsSciFi],
             ['Thriller', showsThriller],
             ['Worst Shows Of All Time', worstShows]
-        ]">
+        ]"> -->
+        <section v-for="{ genre, shows } in selectedShows">
             <h2>{{ genre }} </h2>
            
            <div v-if="genre === 'Worst Shows Of All Time' && !shows.length" class="space-y-1">
@@ -36,7 +37,7 @@
 </template>
 
 <script setup>
-import { computed, ref} from 'vue'
+import { computed, reactive, ref} from 'vue'
 
 import ItemList from '../components/ItemList.vue'
 
@@ -47,7 +48,7 @@ import useGetWorstShows from '../composables/worstShows'
 
 // const { error: showsError, data: shows } = useFetch('https://api.tvmaze.com/shows')
 const { error: showsError, shows, getShows } = useGetShows()
-const { error: worstShowsError, worstShows, getWorstShows } = useGetWorstShows()
+const { error: worstShowsError, worstShows: showsWorst, getWorstShows } = useGetWorstShows()
 
 if (!shows.value.length) getShows('https://api.tvmaze.com/shows')
 
@@ -62,4 +63,44 @@ const showsThriller = computed(() => useFilterShows(shows.value, 'Thriller'))
 
 const loadingWorstShows = ref(false)
 
+const selectedShows = reactive(
+    [
+        { 
+            genre: 'Featured', 
+            shows: showsFeatured
+        },
+        { 
+            genre: 'Drama', 
+            shows: showsDrama
+        },
+        { 
+            genre: 'Action', 
+            shows: showsAction
+        },
+        { 
+            genre: 'Crime', 
+            shows: showsCrime
+        },
+        { 
+            genre: 'Comedy', 
+            shows: showsComedy
+        },
+        { 
+            genre: 'Romance', 
+            shows: showsRomance
+        },
+        { 
+            genre: 'Science Fiction', 
+            shows: showsSciFi
+        },
+        { 
+            genre: 'Thriller', 
+            shows: showsThriller
+        },
+        { 
+            genre: 'Worst Shows Of All Time', 
+            shows: showsWorst
+        },
+    ]
+)
 </script>
