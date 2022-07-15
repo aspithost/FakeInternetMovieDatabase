@@ -52,7 +52,6 @@
             >
                 - Watchlist
             </button>
-            <div v-show="watchList">{{ watchList }} Watchlist!</div>
         </div>
     </div>
 </template>

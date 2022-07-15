@@ -16,29 +16,40 @@
                 :class="[
                     'absolute min-h-screen w-full md:w-[50%] lg:w-[40%] xl:w-[30%] left-0 top-0 z-10 space-y-2 py-4 \
                         transition-all duration-500 ease-in-out \
-                        bg-[#333] shadow-md text-sm font-bold ',
+                        bg-[#333] shadow-md',
                         { 'left-[-100%] md:left-[-50%] lg:left-[-40%] xl:left-[-30%]': !openAside}
                 ]"
             >
                 <li v-for="page in pages" class="cursor-pointer"> 
-                    <details class="space-y-1">
-                        <summary class="px-4 text-lg font-bold sm:text-xl md:text-2xl">{{ page }}</summary>
-                        <router-link 
+                    <details class="space-y-1 px-4">
+                        <summary class="text-lg font-bold sm:text-xl md:text-2xl">{{ page }}</summary>
+                        <div
                             v-for="item in store.state[page.toLowerCase()]" 
-                            @click="openAside = false"
-                            class="hover:bg-[#444] w-full px-8 block"
-                            :to="{
-                                name: `${page.slice(0, -1)}`,
-                                params: {
-                                    id: item.id,
-                                    slug: item.name
-                                        .toLowerCase()
-                                        .replace(/\s|\W/, '-')
-                                }
-                            }"
-                        >
-                            {{ item.name }}
-                        </router-link>
+                            class="flex justify-between"        
+                        >    
+                            <router-link
+                                @click="openAside = false"
+                                class="hover:bg-[#444] w-full px-8 block lg:font-semibold"
+                                :to="{
+                                    name: `${page.slice(0, -1)}`,
+                                    params: {
+                                        id: item.id,
+                                        slug: item.name
+                                            .toLowerCase()
+                                            .replace(/\s|\W/, '-')
+                                    }
+                                }"
+                            >
+                                {{ item.name }}
+                            </router-link>
+                            <img 
+                                @click="store.remove(page.toLowerCase(), item)"
+                                src="/cancel.svg"
+                                height="24"
+                                width="24"
+                                class="hover:opacity-60"  
+                            />
+                        </div>
                     </details>
                 </li>
             </ul>

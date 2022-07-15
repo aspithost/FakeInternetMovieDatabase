@@ -1,4 +1,4 @@
-<template>
+<template>  
     <div class="app min-h-screen bg-[#111] text-gray-200">
 
         <header class="w-full z-10 sticky top-0 bg-[#222]">
