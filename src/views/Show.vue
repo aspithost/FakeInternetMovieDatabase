@@ -133,7 +133,7 @@ const episodesBySeason = computed (() => {
     let eps = data.value?._embedded.episodes;
     if (!eps) return []
 
-    eps = JSON.parse(JSON.stringify(eps))
+    eps = JSON.parse(JSON.stringify(eps)) 
 
     const seasons = getShowSeasons(eps)
 
@@ -151,14 +151,16 @@ const getShowSeasons = (arr) => {
 
     const spliceArray = (arr) => {
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i].season !== index + 1) {
+            // if (arr[i].season !== index + 1) {
+                if (arr[i].season > index + 1) {
                 const season = arr.splice(0, arr.indexOf(arr[i]))
                 seasons.push(season)
                 index += 1
                 return spliceArray(arr)
             }
         }
-        if (index === 0) seasons.push(arr)
+        // if (index === 0) seasons.push(arr) // Wrong! Didn't append final season
+        if (arr) seasons.push(arr)
     }
 
     spliceArray(arr)

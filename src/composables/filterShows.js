@@ -1,11 +1,15 @@
-import { sortByRating, shuffle } from './sort.js'
+import shuffle from './shuffle'
 
 const filterByGenre = (show, genre) => {
     return show.genres.includes(genre) 
 }
 
+const sortByRating = (a, b) => {
+    return b.rating.average - a.rating.average
+}
+
 const useFilterShows = (shows, genre) => {
-    if (!shows?.length) return
+    if (!shows.length) return
 
     if (genre) shows = shows.filter(show => filterByGenre(show, genre))
 

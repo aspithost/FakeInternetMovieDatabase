@@ -1,6 +1,6 @@
 <template>
     <div class="space-y-4 pt-4">
-        <section v-for="[genre, shows] in [
+        <!-- <section v-for="[genre, shows] in [
             ['Featured', showsFeatured],
             ['Drama', showsDrama], 
             ['Action', showsAction], 
@@ -10,7 +10,8 @@
             ['Science Fiction', showsSciFi],
             ['Thriller', showsThriller],
             ['Worst Shows Of All Time', worstShows]
-        ]">
+        ]"> -->
+        <section v-for="{ genre, shows } in selectedShows">
             <h2>{{ genre }} </h2>
            
            <div v-if="genre === 'Worst Shows Of All Time' && !shows.length" class="space-y-1">
@@ -21,7 +22,7 @@
                     @click="getWorstShows(); loadingWorstShows = true"
                     :class="[
                         'bg-[#333] font-semibold rounded-full px-4 py-2 hover:bg-[#444]', 
-                        {'cursor-not-allowed animate-pulse' : loadingWorstShows}
+                        {'cursor-not-allowed animate-pulse' : loadingWorstShows }
                     ]"
                 >
                     Yes, Load Worst Shows! 
@@ -36,16 +37,20 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, reactive, ref} from 'vue'
 
 import ItemList from '../components/ItemList.vue'
 
-import useFetch from '../composables/fetch'
+// import useFetch from '../composables/useFetch'
 import useFilterShows from '../composables/filterShows'
+import useGetShows from '../composables/shows'
 import useGetWorstShows from '../composables/worstShows'
 
-const { error: showsError, data: shows } = useFetch('https://api.tvmaze.com/shows')
-const { error: worstShowsError, worstShows, getWorstShows } = useGetWorstShows()
+// const { error: showsError, data: shows } = useFetch('https://api.tvmaze.com/shows')
+const { error: showsError, shows, getShows } = useGetShows()
+const { error: worstShowsError, worstShows: showsWorst, getWorstShows } = useGetWorstShows()
+
+if (!shows.value.length) getShows('https://api.tvmaze.com/shows')
 
 const showsFeatured = computed(() => useFilterShows(shows.value))
 const showsAction = computed(() => useFilterShows(shows.value, 'Action'))
@@ -58,4 +63,44 @@ const showsThriller = computed(() => useFilterShows(shows.value, 'Thriller'))
 
 const loadingWorstShows = ref(false)
 
+const selectedShows = reactive(
+    [
+        { 
+            genre: 'Featured', 
+            shows: showsFeatured
+        },
+        { 
+            genre: 'Drama', 
+            shows: showsDrama
+        },
+        { 
+            genre: 'Action', 
+            shows: showsAction
+        },
+        { 
+            genre: 'Crime', 
+            shows: showsCrime
+        },
+        { 
+            genre: 'Comedy', 
+            shows: showsComedy
+        },
+        { 
+            genre: 'Romance', 
+            shows: showsRomance
+        },
+        { 
+            genre: 'Science Fiction', 
+            shows: showsSciFi
+        },
+        { 
+            genre: 'Thriller', 
+            shows: showsThriller
+        },
+        { 
+            genre: 'Worst Shows Of All Time', 
+            shows: showsWorst
+        },
+    ]
+)
 </script>

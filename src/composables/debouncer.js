@@ -1,4 +1,4 @@
-const debouncer = (fn, timeout=300) => {
+const useDebouncer = (fn, timeout=300) => {
     let timer;
     return event =>  {
         if (timer) clearTimeout(timer);
@@ -6,4 +6,4 @@ const debouncer = (fn, timeout=300) => {
     }
 }
 
-export default debouncer
+export default useDebouncer
